@@ -1,5 +1,5 @@
 function displayProgram(response) {
-  new Typewriter("#poem", {
+  new Typewriter("#program", {
     strings: response.data.answer,
     autoStart: true,
     delay: 1,
@@ -7,7 +7,7 @@ function displayProgram(response) {
   });
 }
 
-function generatePoem(event) {
+function generateProgram(event) {
   event.preventDefault();
 
   let instructionsInput = document.querySelector("#user-instructions").value.trim(); 
@@ -20,8 +20,8 @@ function generatePoem(event) {
   programElement.classList.remove("hidden");
   programElement.innerHTML = `<div class="generating">⏳ Generating your Nutrition program based on ${instructionsInput}</div>`;
 
-  axios.get(apiURL).then(displayPoem).catch(error => {
-    console.error("Error generating poem:", error);
+  axios.get(apiURL).then(displayProgram).catch(error => {
+    console.error("Error generating program:", error);
     programElement.innerHTML = `<div class="error">❌ Error generating program. Please try again later.</div>`;
   });
 }
