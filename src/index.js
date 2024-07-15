@@ -4,7 +4,7 @@ function formatNutritionProgram(response) {
   
   lines.forEach((line, index) => {
     if (index === 0) {
-      line = line.replace('Day 1:', '');
+      line = line.replace('Day:', '');
     } else {
       line = 'Day ' + line;
     }
