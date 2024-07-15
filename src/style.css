@@ -1,5 +1,5 @@
 body {
-  background-color: #66a681;
+  background-color: #abccb9;
   font-family: Helvetica, Arial, sans-serif;
 }
 
@@ -27,7 +27,7 @@ h1 {
 form {
   padding: 50px;
   background-color: white;
-  box-shadow: 0px 20px 60px rgba(58, 95, 54, 0.08);
+  box-shadow: 0px 20px 60px rgba(71, 86, 69, 0.08);
   border-radius: 10px;
   display: flex;
   margin-bottom: 40px;
