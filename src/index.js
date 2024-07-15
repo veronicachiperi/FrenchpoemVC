@@ -13,7 +13,8 @@ function formatNutritionProgram(response) {
     if (dayMatch) {
       const currentDay = dayMatch[1];
       const dayContent = line.replace(`Day ${currentDay}:`, '').trim();
-      days[currentDay] = dayContent.split(' - ').map(meal => meal.trim());
+      days[currentDay] = dayContent.split(' - ').map(meal => meal.trim().replace(/\s+g\s+/, ' grams '));
+
     }
   });
 
