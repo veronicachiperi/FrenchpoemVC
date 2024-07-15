@@ -1,6 +1,8 @@
 body {
   background-color: #abccb9;
+  background-image: -o-repeating-linear-gradient(#abccb9,#44594d, #dbc7e5 );
   font-family: Helvetica, Arial, sans-serif;
+ 
 }
 
 a {
@@ -21,7 +23,7 @@ h1 {
   font-weight: 1000;
   font-size: 36px;
   line-height: 1.5;
-  color: #a5aaa8;
+  color: #35467e;
 }
 
 form {
