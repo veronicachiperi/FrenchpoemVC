@@ -1,16 +1,19 @@
 function formatNutritionProgram(response) {
-  const lines = response.data.answer.split('\n');
+  const lines = response.data.answer.split(' Day ');
   const days = {};
-  let currentDay = '';
-
-  lines.forEach(line => {
-    const dayMatch = line.match(/Day (\d+)/);
-    if (dayMatch) {
-      currentDay = dayMatch[1];
-      days[currentDay] = [];
+  
+  lines.forEach((line, index) => {
+    if (index === 0) {
+      line = line.replace('Day 1:', '');
+    } else {
+      line = 'Day ' + line;
     }
-    if (currentDay && line.trim() && !dayMatch) {
-      days[currentDay].push(line.trim());
+    
+    const dayMatch = line.match(/Day (\d+):/);
+    if (dayMatch) {
+      const currentDay = dayMatch[1];
+      const dayContent = line.replace(`Day ${currentDay}:`, '').trim();
+      days[currentDay] = dayContent.split(' - ').map(meal => meal.trim());
     }
   });
 
@@ -26,13 +29,12 @@ function displayProgram(response) {
   const formattedProgram = formatNutritionProgram(response);
 
   new Typewriter("#program", {
-    strings: formattedProgram,
+    strings: [formattedProgram],
     autoStart: true,
     delay: 1,
     cursor: "",
   });
 }
-
 function generateProgram(event) {
   event.preventDefault();
 
